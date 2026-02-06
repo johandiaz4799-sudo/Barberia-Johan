@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: white;
+    text-align: center;
+}
+
+header {
+    padding: 40px 20px;
+}
+
+h1 {
+    color: gold;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #ff3c3c;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background: linear-gradient(45deg, gold, #ff3c3c);
+    color: black;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+}
+
+footer {
+    margin-top: 30px;
+    color: #aaa;
+    font-size: 14px;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px gold; }
+    50% { box-shadow: 0 0 20px gold; }
+    100% { box-shadow: 0 0 5px gold; }
+}
+
+button {
+    animation: pulse 2s infinite;
+}
+
+</style>
+
+    <title>Barbería johan</title>
+
+    <style>
+        {
+            backgroun-color: red;
+            color: white;
+            text-align: center;
+            front-family: Arial;
+
+        }
+
+        h1{
+            color: red;
+            front-site: 50px;
+
+        }
+
+        button{
+            background-color: gold;
+            color: black;
+            front-site: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px
+            cursor: pointer;
+
+        }
+
+        button:hover{
+            background-color: red;
+            colot: white;
+        }
+        input, select {
+            padding: 10px;
+            font-side: 16px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+        form{
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #222;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-left: 5px solid gold;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input, select {
+    background: #1b1b1b;
+    color: white;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+.container button {
+    letter-spacing: 1px;
+}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeUp 1s ease;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1> <i class="fa-solid fa-scissors"></i>Barberia johan</h1>
+
+        <h2> <i class="fa-solid fa-crown"></i> Estilo • Precision • Actitud </h2>
+    </header>
+
+    <div class="container">
+
+<p>LOS MEJORES CORTES Y ESTILOS PARA TI</p>
+<button id="botonWhatsapp">
+    <i class="fa-brands fa-whatsaap"></i>Reservar cita
+</button>
+
+<p style="color:#ccc; font-size:14px; margin-top:10px;">
+    <i class="fa-solid fa-lock"></i>
+    Tus datos son privados y solo se usan para la cita
+</p>
+
+
+<form id="formCita">
+<input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
+
+
+    <select id="servicio" required>
+        <option value="Limpieza facial">Limpieza facial</option>
+        <option value="Corte">Corte</option>
+        <option value="Barba">Barba</option>
+        <option value="corte + Barba"> corte + barba</option>
+    </select><br><br>
+
+
+    <input type="date" id="fecha" required><br><br>
+    <input type="time" id="hora" required>
+
+    <button type="submit">
+        <i class="fa-solid fa-calendar-check"></i>Enviar cita
+    </button>
+</form>
+
+</div>
+
+<footer>
+    © 2026 Barbería Johan | Atención Premium
+</footer>
+
+<ul id="Listadecitas"></ul>
+
+</body>
+
+<script>
+
+document.getElementById("botonWhatsapp").onclick = function () {
+    var telefono = "573135421834"; // TU NÚMERO
+    var mensaje = "Hola, quiero agendar una cita en la Barbería Johan 💈";
+    var url = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+};
+
+document.getElementById("formCita").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var nombre = document.getElementById("nombre").value;
+    var servicio = document.getElementById("servicio").value;
+    var fecha = document.getElementById("fecha").value;
+    var hora = document.getElementById("hora").value;
+
+    var mensaje = "Hola, mi nombre es " + nombre +
+        ". Quiero agendar una cita para " + servicio +
+        " el día " + fecha +
+        " a las " + hora;
+
+    var telefono = "573135421834"; // EL MISMO NÚMERO
+    var url = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+});
+</script>
+
+</html>
